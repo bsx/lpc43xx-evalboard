@@ -1,0 +1,20 @@
+RELEASE LPC4330 Xplorer for REV A V1.2 20120518
+-----------------------------------------------
+--> The timer delay used for USB1 VCOM debug messages.
+--> LPC4330 Xplorer examples are updated to Keil V4.50 IDE
+
+RELEASE LPC4330 Xplorer for REV A V1.1 20120413
+------------------------------------------
+--> LPCXpresso examples are added.
+In LPCXpresso
+-------------
+--> LPC4330 Xplorer examples are added
+--> NXP LPC-Link debugger used to run from SPIFI Flash through SWD lines.
+
+In KEIL
+-------
+--> Restoring Xplorer to factory defaults section updated
+
+RELEASE LPC4330 Xplorer for REV A 20120329
+------------------------------------------
+Initial version
