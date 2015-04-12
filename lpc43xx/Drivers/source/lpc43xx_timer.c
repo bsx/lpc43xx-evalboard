@@ -96,13 +96,13 @@ static uint32_t getPClock (uint32_t timernum)
  **********************************************************************/
 uint32_t converUSecToVal (uint32_t timernum, uint32_t usec)
 {
-	uint64_t clkdlycnt;
+	uint32_t clkdlycnt;
 
 	// Get Pclock of timer
-	clkdlycnt = (uint64_t) getPClock(timernum);
+	clkdlycnt = getPClock(timernum) / 1000000;
 
-	clkdlycnt = (clkdlycnt * usec) / 1000000;
-	return (uint32_t) clkdlycnt;
+	clkdlycnt = clkdlycnt * usec;
+	return clkdlycnt;
 }
 
 
