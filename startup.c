@@ -47,14 +47,12 @@ void boot_entry(void)
 {
   register unsigned char *src, *dst;
 
-  /* we don't need this if we are executing directly in RAM
   // Get physical data address and copy it to sram
   src = &_etext;
   dst = &_data;
   while(dst < &_edata) {
     *dst++ = *src++;
   }
-  */
 
   // Clear the bss segment
   dst = &_bss;
@@ -69,11 +67,4 @@ void boot_entry(void)
 
   // Do nothing when returned from main, just keep looping
   while(1);
-}
-
-// SystemInit needs this function but only cares about the 3MSB
-// to determine if the ISR vector is in FLASH (0x100...) or IRAM (0x000...)
-uint32_t getPC(void)
-{
-    return 0x00000000;
 }
