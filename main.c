@@ -9,13 +9,6 @@
 #define LED2_BIT			12 //LEDUSB
 #define LED2_PORT			1
 
-void delay(void)
-{
-    int i;
-    for (i = 0; i < 2000000; i++)   /* Wait a bit. */
-        __asm__("nop");
-}
-
 int main(void)
 {
 
@@ -29,15 +22,12 @@ int main(void)
 
     while (1)
     {
-//        timer_delay_ms(50);
-        delay();
+        timer_delay_ms(500);
         GPIO_ClearValue(LED1_PORT,(1<<LED1_BIT));
-//        timer_delay_ms(50);
-        delay();
+        timer_delay_ms(500);
         GPIO_ClearValue(LED2_PORT,(1<<LED2_BIT));
         GPIO_SetValue(LED1_PORT,(1<<LED1_BIT));
-//        timer_delay_ms(50);
-        delay();
+        timer_delay_ms(500);
         GPIO_SetValue(LED2_PORT,(1<<LED2_BIT));
     }
 
