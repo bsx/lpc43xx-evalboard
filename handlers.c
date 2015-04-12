@@ -109,7 +109,6 @@ void HardFault_Handler(void)    WEAK_ALIAS(fault_undefined)
 void MemManage_Handler(void)    WEAK_ALIAS(fault_undefined)
 void BusFault_Handler(void)     WEAK_ALIAS(fault_undefined)
 void UsageFault_Handler(void)   WEAK_ALIAS(fault_undefined)
-void Sign_Value(void)           WEAK_ALIAS(fault_undefined)
 void SVCall_Handler(void)       WEAK_ALIAS(fault_undefined)
 void DebugMon_Handler(void)     WEAK_ALIAS(fault_undefined)
 void PendSV_Handler(void)       WEAK_ALIAS(fault_undefined)
@@ -139,7 +138,7 @@ const void *vectors[] SECTION(".irq-vectors") =
   MemManage_Handler,     // The MPU fault handler
   BusFault_Handler,      // The bus fault handler
   UsageFault_Handler,    // The usage fault handler
-  Sign_Value,            // Reserved
+  (void *)0x5A5A5A5A,    // Reserved
   0,                     // Reserved
   0,                     // Reserved
   0,                     // Reserved

@@ -2,7 +2,6 @@
 #include "lpc43xx_scu.h"
 #include "lpc43xx_libcfg_default.h"
 #include "lpc43xx_cgu.h"
-#include "lpc43xx_utils.h"
 
 #define LED1_BIT			11 //LEDUSB
 #define LED1_PORT			1
