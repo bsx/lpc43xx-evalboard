@@ -8,8 +8,9 @@ SIZE = arm-none-eabi-size
 
 OCFLAGS = --strip-unneeded
 
-CFLAGS = -I./CMSISv2p10_LPC43xx_DriverLib/inc
-CFLAGS += -I./CMSISv2p10_LPC43xx_DriverLib/Core/Device/NXP/LPC43xx/Include/
+CFLAGS = -I./lpc43xx/Core/CMSIS/Include
+CFLAGS += -I./lpc43xx/Core/Device/NXP/LPC43xx/Include
+CFLAGS += -I./lpc43xx/Drivers/include
 CFLAGS += -I./ -c -fno-common -Os -g -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -fdata-sections -fno-builtin -Wno-unused-function -ffreestanding
 CFLAGS += -DCORE_M4
 LFLAGS = -Tevalboard.ld -nostartfiles -Wl,--gc-sections
@@ -20,13 +21,16 @@ OBJS = main.o
 # startup files
 OBJS += handlers.o startup.o
 
+# SystemInit based on template
+OBJS += system_LPC43xx.o
+
 # drivers/lib
-OBJS += CMSISv2p10_LPC43xx_DriverLib/src/lpc43xx_scu.o
-OBJS += CMSISv2p10_LPC43xx_DriverLib/src/lpc43xx_cgu.o
-OBJS += CMSISv2p10_LPC43xx_DriverLib/src/lpc43xx_gpio.o
-OBJS += CMSISv2p10_LPC43xx_DriverLib/src/lpc43xx_utils.o
-OBJS += CMSISv2p10_LPC43xx_DriverLib/src/lpc43xx_timer.o
-OBJS += CMSISv2p10_LPC43xx_DriverLib/src/system_LPC43xx.o
+OBJS += lpc43xx/Drivers/source/lpc43xx_scu.o
+OBJS += lpc43xx/Drivers/source/lpc43xx_cgu.o
+OBJS += lpc43xx/Drivers/source/lpc43xx_gpio.o
+OBJS += lpc43xx/Drivers/source/lpc43xx_timer.o
+OBJS += lpc43xx/Core/Device/NXP/LPC43xx/Source/fpu_init.o
+OBJS += lpc43xx/Core/Device/NXP/LPC43xx/Source/fpu_enable.o
 
 all: main.dfu
 

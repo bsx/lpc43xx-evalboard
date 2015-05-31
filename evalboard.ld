@@ -1,6 +1,6 @@
 MEMORY
 {
-  sram1 (rwx) : ORIGIN = 0x00000000, LENGTH = 32K
+  sram1 (rwx) : ORIGIN = 0x10000000, LENGTH = 32K
   sram2 (rwx) : ORIGIN = 0x10080000, LENGTH = 32K
 }
 
@@ -10,6 +10,7 @@ ENTRY(boot_entry)
 SECTIONS
 {
     .text : {
+        __vector_table = .;
         KEEP(*(.irq-vectors))
         *(.text*)
         *(.rodata*)
